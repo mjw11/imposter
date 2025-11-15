@@ -63,7 +63,8 @@ function App() {
     if (randomCat.words.length === 0) return;
     const randomWord = randomCat.words[Math.floor(Math.random() * randomCat.words.length)];
 
-    // 3. Create Players & Shuffle
+    // 3. Create Players
+    // We keep the order from the setup screen (no shuffle) so users can find their names easily
     let gamePlayers: Player[] = playersList.map(name => ({
       id: uuidv4(),
       name,
@@ -72,16 +73,12 @@ function App() {
       isFirstPlayer: false
     }));
 
-    // Fisher-Yates Shuffle
-    for (let i = gamePlayers.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [gamePlayers[i], gamePlayers[j]] = [gamePlayers[j], gamePlayers[i]];
-    }
+    // 4. Assign Roles Randomly
+    // Pick random imposter
+    const imposterIndex = Math.floor(Math.random() * gamePlayers.length);
+    gamePlayers[imposterIndex].isImposter = true;
 
-    // Assign Roles (Index 0 is Imposter after shuffle)
-    gamePlayers[0].isImposter = true;
-
-    // Assign First Player (Random index)
+    // 5. Assign First Player (Random index)
     const firstPlayerIdx = Math.floor(Math.random() * gamePlayers.length);
     gamePlayers[firstPlayerIdx].isFirstPlayer = true;
 
