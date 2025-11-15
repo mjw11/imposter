@@ -55,9 +55,9 @@ export const ActionScreen: React.FC<ActionScreenProps> = ({
           
           <div className="border-l-2 border-spy-dim/30 pl-4 text-left max-w-xs mx-auto">
             <p className="text-sm font-mono text-spy-dim leading-relaxed">
-              <span className="text-spy-cyan font-bold">></span> ASK QUESTIONS<br/>
-              <span className="text-spy-cyan font-bold">></span> FIND THE IMPOSTER<br/>
-              <span className="text-spy-cyan font-bold">></span> DON'T GET CAUGHT
+              <span className="text-spy-cyan font-bold">&gt;</span> ASK QUESTIONS<br/>
+              <span className="text-spy-cyan font-bold">&gt;</span> FIND THE IMPOSTER<br/>
+              <span className="text-spy-cyan font-bold">&gt;</span> DON'T GET CAUGHT
             </p>
           </div>
         </div>
